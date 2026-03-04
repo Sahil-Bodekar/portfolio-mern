@@ -5,8 +5,6 @@ import contactRoutes from "./routes/contactRoutes.js";
 import mongoose from "mongoose";
 import cors from "cors";
 
-import nodemailer from "nodemailer";
-
 const app = express();
 
 app.use(cors());
