@@ -24,13 +24,16 @@ function Contact() {
     setStatus("");
 
     try {
-      const res = await fetch("https://portfolio-mern-2-85cx.onrender.com/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://portfolio-mern-2-85cx.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (res.ok) {
         setStatus("success");
