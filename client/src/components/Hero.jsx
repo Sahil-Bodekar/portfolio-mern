@@ -24,12 +24,24 @@ function Hero() {
           />
         </h2>
 
-        <a
-          href="#contact"
-          className="px-6 py-3 border border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400 hover:text-black transition"
-        >
-          Get In Touch
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
+          {/* Primary Button */}
+          <a
+            href="#contact"
+            className="px-8 py-3 bg-cyan-400 text-black font-semibold rounded-xl shadow-lg hover:bg-cyan-300 transition duration-300 text-center transform hover:-translate-y-1"
+          >
+            Get In Touch
+          </a>
+
+          {/* Outline Button */}
+          <a
+            href="/resume.pdf"
+            download
+            className="px-8 py-3 border border-cyan-400 text-cyan-400 font-semibold rounded-xl hover:bg-cyan-400 hover:text-black transition duration-300 text-center transform hover:-translate-y-1"
+          >
+            Download Resume
+          </a>
+        </div>
       </div>
     </section>
   );

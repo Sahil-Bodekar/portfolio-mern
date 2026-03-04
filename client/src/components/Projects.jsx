@@ -1,76 +1,60 @@
 function Projects() {
-  const projects = [
+  const projectList = [
     {
-      title: "Portfolio Website",
+      title: "Personal Portfolio",
       description:
-        "A modern personal portfolio built using React, Tailwind CSS, and Node.js backend.",
-      tech: ["React", "Tailwind", "Node.js"],
-      github: "#",
-      live: "#",
+        "A full-stack portfolio website built using MERN stack with Telegram notifications and MongoDB integration.",
+      tech: ["React", "Node.js", "MongoDB", "Express"],
     },
     {
-      title: "E-Commerce App",
+      title: "Expense Tracker",
       description:
-        "Full-stack MERN e-commerce application with authentication and payment integration.",
-      tech: ["MongoDB", "Express", "React", "Node"],
-      github: "#",
-      live: "#",
+        "A web application to track daily expenses with authentication and database storage.",
+      tech: ["MERN Stack", "JWT", "MongoDB"],
     },
     {
-      title: "Task Manager API",
+      title: "Financial Anomaly Detection",
       description:
-        "RESTful API with authentication and CRUD operations built using Express and MongoDB.",
-      tech: ["Express", "MongoDB", "JWT"],
-      github: "#",
-      live: "#",
+        "A hackathon project focused on detecting unusual financial transactions using intelligent logic.",
+      tech: ["Node.js", "MongoDB", "AI Logic"],
     },
   ];
 
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="py-20 px-6 bg-[#0f172a]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 border-l-4 border-cyan-400 pl-4">
-          Projects
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-cyan-400 mb-12">
+          Featured Projects
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-3 gap-8">
+          {projectList.map((project, index) => (
             <div
               key={index}
-              className="bg-[#1e293b] p-6 rounded-lg border border-gray-800 hover:border-cyan-400 transition duration-300"
+              className="bg-[#1e293b] border border-gray-700 rounded-2xl p-6 shadow-lg hover:-translate-y-2 hover:shadow-cyan-500/20 transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">
+                {project.title}
+              </h3>
 
-              <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm mb-4">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((tech, i) => (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((item, i) => (
                   <span
                     key={i}
-                    className="text-xs bg-[#0f172a] text-cyan-400 px-2 py-1 rounded"
+                    className="text-xs bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full"
                   >
-                    {tech}
+                    {item}
                   </span>
                 ))}
               </div>
 
-              <div className="flex justify-between">
-                <a
-                  href={project.github}
-                  className="text-sm border border-gray-600 px-3 py-1 rounded hover:border-cyan-400 hover:text-cyan-400 transition"
-                >
-                  GitHub
-                </a>
-
-                <a
-                  href={project.live}
-                  className="text-sm border border-gray-600 px-3 py-1 rounded hover:border-cyan-400 hover:text-cyan-400 transition"
-                >
-                  Live
-                </a>
-              </div>
+              <button className="w-full border border-cyan-400 text-cyan-400 py-2 rounded-md hover:bg-cyan-400 hover:text-black transition">
+                Coming Soon
+              </button>
             </div>
           ))}
         </div>

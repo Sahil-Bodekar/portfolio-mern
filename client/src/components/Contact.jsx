@@ -8,6 +8,7 @@ function Contact() {
   });
 
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false); // NEW
 
   const handleChange = (e) => {
     setFormData({
@@ -19,6 +20,9 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true); // START LOADING
+    setStatus("");
+
     try {
       const res = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
@@ -29,14 +33,21 @@ function Contact() {
       });
 
       if (res.ok) {
-        setStatus("Message sent successfully ✅");
+        setStatus("success");
         setFormData({ name: "", email: "", message: "" });
+
+        // Auto hide after 3 sec
+        setTimeout(() => {
+          setStatus("");
+        }, 3000);
       } else {
-        setStatus("Something went wrong ❌");
+        setStatus("error");
       }
     } catch (error) {
-      setStatus("Server error ❌");
+      setStatus("error");
     }
+
+    setLoading(false); // STOP LOADING
   };
 
   return (
@@ -79,13 +90,24 @@ function Contact() {
 
           <button
             type="submit"
-            className="w-full py-3 border border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400 hover:text-black transition"
+            disabled={loading}
+            className="w-full py-3 border border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400 hover:text-black transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
 
-          {status && (
-            <p className="text-center text-sm text-gray-400">{status}</p>
+          {/* Success Message */}
+          {status === "success" && (
+            <p className="text-center text-green-400 animate-pulse">
+              ✅ Message sent successfully!
+            </p>
+          )}
+
+          {/* Error Message */}
+          {status === "error" && (
+            <p className="text-center text-red-400 animate-pulse">
+              ❌ Something went wrong!
+            </p>
           )}
         </form>
       </div>
