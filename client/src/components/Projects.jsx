@@ -5,6 +5,8 @@ function Projects() {
       description:
         "A full-stack portfolio website built using MERN stack with Telegram notifications and MongoDB integration.",
       tech: ["React", "Node.js", "MongoDB", "Express"],
+      live: "https://fastidious-cajeta-ea631f.netlify.app/#about",
+      github: "https://github.com/yourusername/portfolio-mern",
     },
     {
       title: "Expense Tracker",
@@ -41,7 +43,7 @@ function Projects() {
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((item, i) => (
                   <span
                     key={i}
@@ -52,9 +54,31 @@ function Projects() {
                 ))}
               </div>
 
-              <button className="w-full border border-cyan-400 text-cyan-400 py-2 rounded-md hover:bg-cyan-400 hover:text-black transition">
-                Coming Soon
-              </button>
+              {project.live ? (
+                <div className="flex gap-3">
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full text-center border border-cyan-400 text-cyan-400 py-2 rounded-md hover:bg-cyan-400 hover:text-black transition"
+                  >
+                    Live Demo
+                  </a>
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full text-center border border-gray-500 text-gray-300 py-2 rounded-md hover:bg-gray-700 transition"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              ) : (
+                <button className="w-full border border-cyan-400 text-cyan-400 py-2 rounded-md opacity-60 cursor-not-allowed">
+                  Coming Soon
+                </button>
+              )}
             </div>
           ))}
         </div>
