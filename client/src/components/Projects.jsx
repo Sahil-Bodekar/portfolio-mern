@@ -6,7 +6,7 @@ function Projects() {
         "A full-stack portfolio website built using MERN stack with Telegram notifications and MongoDB integration.",
       tech: ["React", "Node.js", "MongoDB", "Express"],
       live: "https://fastidious-cajeta-ea631f.netlify.app/#about",
-      github: "https://github.com/yourusername/portfolio-mern",
+      github: "https://github.com/Sahil-Bodekar/portfolio-mern/tree/main",
     },
     {
       title: "Expense Tracker",
